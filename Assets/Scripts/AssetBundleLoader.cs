@@ -9,11 +9,18 @@ public class AssetBundleLoader : MonoBehaviour
     public string bundleURL = "D:/StandaloneWindows64/";
     private void Start()
     {
-        LoadAssetBundle(bundleURL);
+        StartCoroutine(LoadAssetBundle(bundleURL));
     }
 
-    private void LoadAssetBundle(string bundleURL)
+    private IEnumerator LoadAssetBundle(string bundleURL)
     {
-        Bundle = AssetBundle.LoadFromFile(bundleURL);
+        UnityWebRequest webRequest = UnityWebRequestAssetBundle.GetAssetBundle(bundleURL);
+
+        yield return webRequest.SendWebRequest();
+
+        Bundle = ((DownloadHandlerAssetBundle)webRequest.downloadHandler).assetBundle;
+
+        GameObject gameObject = Bundle.LoadAsset("Cylinder") as GameObject;
+        Instantiate(gameObject);
     }
 }

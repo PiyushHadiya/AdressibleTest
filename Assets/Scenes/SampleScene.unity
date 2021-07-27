@@ -361,4 +361,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bundle: {fileID: 0}
-  bundleURL: file:///D:/StandaloneWindows64/container
+  bundleURL: https://firebasestorage.googleapis.com/v0/b/fir-two-1aeaa.appspot.com/o/StandaloneWindows64%2Fcontainer?alt=media&token=790240c4-c429-418d-8f72-17888a1c67da
